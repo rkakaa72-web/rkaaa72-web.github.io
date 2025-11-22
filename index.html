@@ -120,8 +120,7 @@
             top: 0;
             width: 100%;
             height: 100%;
-            /* ИЗМЕНЕНИЕ: Снижение плотности затемнения */
-            background-color: rgba(0, 0, 0, 0.5); 
+            background-color: rgba(0, 0, 0, 0.7); 
             backdrop-filter: blur(8px);
             justify-content: center;
             align-items: center;
@@ -129,19 +128,17 @@
         }
 
         .modal-content {
-            /* ИЗМЕНЕНИЕ: Прозрачный фон, неоновая рамка и свечение */
-            background: rgba(255, 255, 255, 0.1); /* Прозрачный белый фон */
-            border: 1px solid rgba(255, 255, 255, 0.2); /* Тонкая белая рамка */
+            background: rgba(255, 255, 255, 0.1); 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
             padding: 30px;
             border-radius: 25px;
             text-align: center;
             width: 85%;
             max-width: 320px;
             position: relative;
-            /* Неоновое свечение */
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), /* Внутреннее свечение */
-                        0 0 20px rgba(255, 255, 255, 0.3); /* Внешнее, более рассеянное */
-            backdrop-filter: blur(5px); /* Легкое размытие */
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 
+                        0 0 20px rgba(255, 255, 255, 0.3); 
+            backdrop-filter: blur(5px); 
             transition: box-shadow 0.3s ease;
         }
 
@@ -171,19 +168,7 @@
             100% { transform: translateY(0px); }
         }
 
-        /* --- СТИЛИ ДЛЯ ОКНА "ПУСТО" --- */
-        .sad-smile {
-            font-size: 3.5rem;
-            display: block;
-            margin: 10px 0 15px;
-            animation: float 3s ease-in-out infinite;
-        }
-        .modal-text {
-            font-size: 1.1rem;
-            color: #ddd;
-        }
-
-        /* --- СТИЛИ ДЛЯ КАРТОЧКИ ТЕЛЕГРАМА --- */
+        /* --- СТИЛИ ДЛЯ КАРТОЧКИ ТЕЛЕГРАМА и РАБОТ --- */
         .tg-preview {
             display: flex;
             flex-direction: column;
@@ -200,7 +185,6 @@
             margin-bottom: 15px;
             box-shadow: 0 0 15px rgba(42, 171, 238, 0.3);
         }
-
         .tg-title {
             font-size: 1.3rem;
             margin: 0;
@@ -225,11 +209,24 @@
             transition: transform 0.2s, box-shadow 0.2s;
             width: 100%;
             box-sizing: border-box;
+            margin-top: 10px; /* Добавлено для отступа между кнопками */
         }
 
         .tg-action-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(34, 158, 217, 0.6);
+        }
+        
+        /* Стиль для второй кнопки (или альтернативного действия) */
+        .alt-action-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ccc;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .alt-action-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: none;
         }
     </style>
 </head>
@@ -254,9 +251,9 @@
                 <i class="fas fa-folder-open"></i> Мои работы
             </div>
 
-            <a href="https://t.me/minusset" class="link-item" target="_blank">
+            <div class="link-item" onclick="openModal('modal-ls')">
                 <i class="fas fa-paper-plane"></i> Написать в ЛС
-            </a>
+            </div>
         </div>
 
         <footer>
@@ -282,7 +279,7 @@
         </div>
     </div>
 
-  <div id="modal-empty" class="modal" onclick="closeModal(event, 'modal-empty')">
+    <div id="modal-empty" class="modal" onclick="closeModal(event, 'modal-empty')">
     <div class="modal-content">
         <span class="close-btn" onclick="closeBtn('modal-empty')">&times;</span>
         
@@ -300,6 +297,26 @@
 
     </div>
 </div>
+
+    <div id="modal-ls" class="modal" onclick="closeModal(event, 'modal-ls')">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeBtn('modal-ls')">&times;</span>
+            
+            <div class="tg-preview">
+                <h3 class="tg-title">Написать мне</h3>
+                <p class="tg-desc">Выберите удобный способ связи.</p>
+                
+                <a href="https://t.me/minusset" target="_blank" class="tg-action-btn">
+                    Написать в Tg <i class="fab fa-telegram-plane"></i>
+                </a>
+
+                <div class="tg-action-btn alt-action-btn" onclick="closeBtn('modal-ls')">
+                    Закрыть
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     <script>
         // === 1. ЛОГИКА МОДАЛЬНЫХ ОКОН ===
