@@ -209,7 +209,7 @@
             transition: transform 0.2s, box-shadow 0.2s;
             width: 100%;
             box-sizing: border-box;
-            margin-top: 10px; /* Добавлено для отступа между кнопками */
+            margin-top: 10px; 
         }
 
         .tg-action-btn:hover {
@@ -217,7 +217,6 @@
             box-shadow: 0 8px 20px rgba(34, 158, 217, 0.6);
         }
         
-        /* Стиль для второй кнопки (или альтернативного действия) */
         .alt-action-btn {
             background: rgba(255, 255, 255, 0.1);
             color: #ccc;
@@ -280,30 +279,30 @@
     </div>
 
     <div id="modal-empty" class="modal" onclick="closeModal(event, 'modal-empty')">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeBtn('modal-empty')">&times;</span>
-        
-        <div class="tg-preview">
-            <img src="mywork.jpg" class="tg-avatar-large" alt="My Work Avatar"> 
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeBtn('modal-empty')">&times;</span>
             
-            <h3 class="tg-title">Im eat</h3>
-            
-            <p class="tg-desc">Хз, че тут постить, работ нет.</p>
-            
-            <a href="https://t.me/myworkyesmy" target="_blank" class="tg-action-btn">
-                Перейти к работам <i class="fas fa-arrow-right"></i>
-            </a>
-        </div>
+            <div class="tg-preview">
+                <img src="mywork.jpg" class="tg-avatar-large" alt="My Work Avatar"> 
+                
+                <h3 class="tg-title">Im eat</h3>
+                
+                <p class="tg-desc">Хз, че тут постить, работ нет.</p>
+                
+                <a href="https://t.me/myworkyesmy" target="_blank" class="tg-action-btn">
+                    Перейти к работам <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
 
+        </div>
     </div>
-</div>
 
     <div id="modal-ls" class="modal" onclick="closeModal(event, 'modal-ls')">
         <div class="modal-content">
             <span class="close-btn" onclick="closeBtn('modal-ls')">&times;</span>
             
             <div class="tg-preview">
-                <h3 class="tg-title">Написать мне</h3>
+                <img src="ls_avatar.jpg" class="tg-avatar-large" alt="LS Avatar"> <h3 class="tg-title">Написать мне</h3>
                 <p class="tg-desc">Выберите удобный способ связи.</p>
                 
                 <a href="https://t.me/minusset" target="_blank" class="tg-action-btn">
