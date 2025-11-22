@@ -6,7 +6,6 @@
     <title>Ss bio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-     
         body {
             margin: 0;
             padding: 0;
@@ -72,7 +71,6 @@
             gap: 15px;
         }
 
-     
         .link-item {
             display: flex;
             align-items: center;
@@ -111,7 +109,6 @@
             opacity: 0.7;
         }
 
-       
         .modal {
             display: none;
             position: fixed;
@@ -168,7 +165,6 @@
             100% { transform: translateY(0px); }
         }
 
-        
         .tg-preview {
             display: flex;
             flex-direction: column;
@@ -181,10 +177,8 @@
             height: 80px;
             border-radius: 50%;
             object-fit: cover;
-            
             border: 3px solid rgba(255, 255, 255, 0.5); 
             margin-bottom: 15px;
-           
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
         }
         .tg-title {
@@ -223,6 +217,17 @@
             background: rgba(255, 255, 255, 0.1);
             color: #ccc;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none; 
+            cursor: pointer;
+            padding: 12px 30px; 
+            border-radius: 50px;
+            font-weight: 600;
+            box-sizing: border-box;
+            width: 100%;
+            margin-top: 10px; 
         }
 
         .alt-action-btn:hover {
@@ -306,23 +311,22 @@
             <div class="tg-preview">
                 <img src="ls_avatar.jpg" class="tg-avatar-large" alt="LS Avatar"> 
 
-<h3 class="tg-title">Написать мне</h3>
+                <h3 class="tg-title">Написать мне</h3>
                 <p class="tg-desc">Выберите удобный способ связи.</p>
                 
                 <a href="https://t.me/minusset" target="_blank" class="tg-action-btn">
                     Написать в Tg <i class="fab fa-telegram-plane"></i>
                 </a>
 
-                <div class="tg-action-btn alt-action-btn" onclick="closeBtn('modal-ls')">
-                    Закрыть
-                </div>
+                <a href="https://t.me/RnPlugins" target="_blank" class="alt-action-btn">
+                    RnPlugins <i class="fab fa-telegram"></i>
+                </a>
             </div>
 
         </div>
     </div>
 
     <script>
-     
         function openModal(modalId) {
             document.getElementById(modalId).style.display = "flex";
         }
