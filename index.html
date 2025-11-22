@@ -202,7 +202,120 @@
         }
 
         .tg-title {
-            font
+            font-size: 1.3rem;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .tg-desc {
+            font-size: 0.9rem;
+            color: #aaa;
+            margin: 5px 0 20px;
+        }
+
+        .tg-action-btn {
+            background: linear-gradient(45deg, #2AABEE, #229ED9);
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(34, 158, 217, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .tg-action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(34, 158, 217, 0.6);
+        }
+    </style>
+</head>
+<body>
+    
+    <video class="video-bg" autoplay muted loop playsinline>
+        <source src="video.mp4" type="video/mp4">
+    </video>
+
+    <div class="container">
+        <img src="avatar.jpeg" alt="Avatar" class="avatar">
+        
+        <h1>Ss</h1> 
+        <p class="bio">It's a fine Day.</p>
+
+        <div class="links">
+            <div class="link-item" onclick="openModal('modal-tg')">
+                <i class="fab fa-telegram"></i> Telegram Канал
+            </div>
+
+            <div class="link-item" onclick="openModal('modal-empty')">
+                <i class="fas fa-folder-open"></i> Мои работы
+            </div>
+
+            <a href="https://t.me/minusset" class="link-item" target="_blank">
+                <i class="fas fa-paper-plane"></i> Написать в ЛС
+            </a>
+        </div>
+
+        <footer>
+            &copy; 2025
+        </footer>
+    </div>
+
+    <div id="modal-tg" class="modal" onclick="closeModal(event, 'modal-tg')">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeBtn('modal-tg')">&times;</span>
+            
+            <div class="tg-preview">
+                <img src="avatar_tg.jpg" class="tg-avatar-large" alt="avatar_tg.jpg"> 
+                
+                <h3 class="tg-title">Meme channel</h3>
+                <p class="tg-desc">Mheheheheh</p>
+                
+                <a href="https://t.me/bebebebeeheh" target="_blank" class="tg-action-btn">
+                    Подписаться <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+  <div id="modal-empty" class="modal" onclick="closeModal(event, 'modal-empty')">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeBtn('modal-empty')">&times;</span>
+        
+        <div class="tg-preview">
+            <img src="mywork.jpg" class="tg-avatar-large" alt="My Work Avatar"> 
+            
+            <h3 class="tg-title">Im eat</h3>
+            
+            <p class="tg-desc">Хз, че тут постить, работ нет.</p>
+            
+            <a href="https://t.me/myworkyesmy" target="_blank" class="tg-action-btn">
+                Перейти к работам <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+    <script>
+        // === 1. ЛОГИКА МОДАЛЬНЫХ ОКОН ===
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "flex";
+        }
+
+        function closeBtn(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        function closeModal(event, modalId) {
+            if (event.target.id === modalId) {
+                document.getElementById(modalId).style.display = "none";
+            }
+        }
     </script>
 
 </body>
