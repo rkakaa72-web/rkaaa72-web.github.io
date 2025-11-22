@@ -6,7 +6,7 @@
     <title>Ss bio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* --- БАЗОВЫЕ СТИЛИ --- */
+     
         body {
             margin: 0;
             padding: 0;
@@ -72,7 +72,7 @@
             gap: 15px;
         }
 
-        /* Кнопки на главной */
+     
         .link-item {
             display: flex;
             align-items: center;
@@ -111,7 +111,7 @@
             opacity: 0.7;
         }
 
-        /* --- СТИЛИ МОДАЛЬНОГО ОКНА (ОБЩИЕ) --- */
+       
         .modal {
             display: none;
             position: fixed;
@@ -168,7 +168,7 @@
             100% { transform: translateY(0px); }
         }
 
-        /* --- СТИЛИ ДЛЯ КАРТОЧКИ ТЕЛЕГРАМА и РАБОТ --- */
+        
         .tg-preview {
             display: flex;
             flex-direction: column;
@@ -181,9 +181,11 @@
             height: 80px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #2AABEE;
+            
+            border: 3px solid rgba(255, 255, 255, 0.5); 
             margin-bottom: 15px;
-            box-shadow: 0 0 15px rgba(42, 171, 238, 0.3);
+           
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
         }
         .tg-title {
             font-size: 1.3rem;
@@ -302,7 +304,9 @@
             <span class="close-btn" onclick="closeBtn('modal-ls')">&times;</span>
             
             <div class="tg-preview">
-                <img src="ls_avatar.jpg" class="tg-avatar-large" alt="LS Avatar"> <h3 class="tg-title">Написать мне</h3>
+                <img src="ls_avatar.jpg" class="tg-avatar-large" alt="LS Avatar"> 
+
+<h3 class="tg-title">Написать мне</h3>
                 <p class="tg-desc">Выберите удобный способ связи.</p>
                 
                 <a href="https://t.me/minusset" target="_blank" class="tg-action-btn">
@@ -318,7 +322,7 @@
     </div>
 
     <script>
-        // === 1. ЛОГИКА МОДАЛЬНЫХ ОКОН ===
+     
         function openModal(modalId) {
             document.getElementById(modalId).style.display = "flex";
         }
