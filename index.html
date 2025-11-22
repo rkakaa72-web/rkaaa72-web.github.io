@@ -228,11 +228,14 @@
             box-sizing: border-box;
             width: 100%;
             margin-top: 10px; 
+            transition: transform 0.2s, background 0.2s, box-shadow 0.2s; /* Добавлено для анимации */
         }
 
         .alt-action-btn:hover {
+            /* Добавлено для анимации */
+            transform: translateY(-2px); 
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
             background: rgba(255, 255, 255, 0.2);
-            box-shadow: none;
         }
     </style>
 </head>
