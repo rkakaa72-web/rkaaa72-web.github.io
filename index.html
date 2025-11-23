@@ -479,6 +479,19 @@
                 document.getElementById(modalId).style.display = "none";
             }
         }
+        <script>
+        // НОВОЕ: Переменная для имитации состояния авторизации
+        let isUserLoggedIn = false; 
+
+        // НОВАЯ ФУНКЦИЯ: Имитация авторизации
+        function fakeLogin() {
+            isUserLoggedIn = true;
+            alert("Вы успешно авторизованы! Теперь вы можете покупать за Scoin.");
+            // Можете изменить текст кнопки, если хотите
+            // document.querySelector('[onclick="openModal(\'modal-auth\')"]').innerHTML = '<i class="fas fa-sign-out-alt"></i> Выйти (Demo)';
+        }
+        
+        // ... (остальные функции openNav, closeNav, openModal, closeBtn, closeModal остаются прежними)
     </script>
 
 </body>
