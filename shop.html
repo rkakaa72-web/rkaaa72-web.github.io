@@ -283,6 +283,24 @@
                 document.getElementById(modalId).style.display = "none";
             }
         }
+        <div id="modal-buy-scoin" class="modal" onclick="closeModal(event, 'modal-buy-scoin')">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeBtn('modal-buy-scoin')">&times;</span>
+        
+        <h3 class="modal-title" style="margin-bottom: 20px;">Покупка Scoin</h3>
+        
+        <p style="margin-bottom: 25px; color: #ccc;">Выберите сумму для пополнения:</p>
+
+        <a href="https://yoomoney.ru/" target="_blank" class="payment-option-btn yumoney-btn" style="background: #e67e22;">
+            <i class="fas fa-star"></i> Купить 1000 Scoin за 200 ₽
+        </a>
+        
+        <a href="https://yoomoney.ru/" target="_blank" class="payment-option-btn yumoney-btn" style="background: #e74c3c;">
+            <i class="fas fa-star"></i> Купить 500 Scoin за 110 ₽
+        </a>
+        
+    </div>
+</div>
     </script>
 </body>
 </html>
