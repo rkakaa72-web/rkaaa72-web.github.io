@@ -432,7 +432,23 @@
 
         </div>
     </div>
+<div id="modal-auth" class="modal" onclick="closeModal(event, 'modal-auth')">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeBtn('modal-auth')">&times;</span>
+        
+        <h3 class="tg-title" style="margin-bottom: 25px;">Войти в аккаунт</h3>
+        
+        <p style="margin-bottom: 20px; color: #ccc;">Для покупок за Scoin требуется авторизация.</p>
 
+        <button class="tg-action-btn" onclick="fakeLogin(); closeBtn('modal-auth');" style="margin-bottom: 15px;">
+            Войти
+        </button>
+        
+        <a href="#" class="alt-action-btn" style="color: #aaa;">
+            Регистрация
+        </a>
+    </div>
+</div>
     <script>
         // === 1. ЛОГИКА БОКОВОГО МЕНЮ (с логикой скрытия кнопки) ===
         function openNav() {
