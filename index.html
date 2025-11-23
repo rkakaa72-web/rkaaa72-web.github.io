@@ -120,12 +120,10 @@
             z-index: 20;
             top: 0;
             left: 0;
-            /* Цвет как у модалок */
             background: rgba(30, 30, 30, 0.95); 
             backdrop-filter: blur(15px);
             overflow-x: hidden;
             transition: 0.5s;
-            /* Немного уменьшен padding-top для H2 */
             padding-top: 50px; 
             transform: translateX(-250px);
             border-right: 1px solid rgba(255, 255, 255, 0.1);
@@ -135,7 +133,7 @@
             transform: translateX(0);
         }
         
-        /* --- ИЗМЕНЕННЫЕ СТИЛИ ЭЛЕМЕНТОВ МЕНЮ (sidebar-item) --- */
+        /* --- СТИЛИ ЭЛЕМЕНТОВ МЕНЮ (sidebar-item) --- */
         .sidebar-item {
             padding: 15px 20px; 
             text-decoration: none;
@@ -145,21 +143,18 @@
             transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
             font-weight: 500;
             
-            /* НОВОЕ: Закругленные углы */
             border-radius: 12px; 
-            /* НОВОЕ: Отделение элементов друг от друга и от края меню */
             margin: 0 15px 12px 15px; 
             background-color: rgba(255, 255, 255, 0.07); 
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transform: scale(1); /* Для плавного эффекта увеличения */
+            transform: scale(1); 
         }
         
         .sidebar-item:hover {
             color: #fff;
             background-color: rgba(255, 255, 255, 0.15);
-            /* НОВОЕ: Белое свечение/тень */
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.4); 
-            transform: scale(1.01); /* Легкое увеличение */
+            transform: scale(1.01); 
         }
 
         .sidebar-item i {
@@ -212,7 +207,6 @@
         }
 
         .modal-content {
-            /* Цвет как у сайдбара */
             background: rgba(30, 30, 30, 0.95); 
             border: 1px solid rgba(255, 255, 255, 0.15); 
             padding: 30px;
@@ -341,20 +335,8 @@
             <i class="fas fa-shopping-cart"></i> Магазин
         </a>
         
-        <div class="sidebar-item" onclick="openModal('modal-tg'); closeNav();">
-            <i class="fab fa-telegram"></i> Telegram Канал
-        </div>
-
-        <div class="sidebar-item" onclick="openModal('modal-empty'); closeNav();">
-            <i class="fas fa-folder-open"></i> Мои работы
-        </div>
-        
         <a href="https://t.me/RnPlugins" target="_blank" class="sidebar-item" onclick="closeNav()">
             <i class="fas fa-code-branch"></i> RnPlugins
-        </a>
-        
-        <a href="https://t.me/minusset" target="_blank" class="sidebar-item" onclick="closeNav()">
-            <i class="fas fa-paper-plane"></i> Написать в ЛС
         </a>
         
         <div class="sidebar-item" onclick="closeNav()" style="margin-top: 30px; opacity: 0.8; font-size: 0.9rem;">
@@ -443,8 +425,8 @@
                     Написать в Tg <i class="fab fa-telegram-plane"></i>
                 </a>
 
-                <a href="" target="_blank" class="alt-action-btn">
-                    samghitler <i class="fab fa-telegram"></i>
+                <a href="https://t.me/RnPlugins" target="_blank" class="alt-action-btn">
+                    RnPlugins <i class="fab fa-telegram"></i>
                 </a>
             </div>
 
@@ -452,22 +434,22 @@
     </div>
 
     <script>
- 
+        // === 1. ЛОГИКА БОКОВОГО МЕНЮ (с логикой скрытия кнопки) ===
         function openNav() {
             document.getElementById("mySidebar").classList.add('open');
-         
+            // СКРЫВАЕМ кнопку открытия меню
             document.getElementById("openBtn").style.display = 'none';
         }
 
         function closeNav() {
             document.getElementById("mySidebar").classList.remove('open');
-    
+            // ПОКАЗЫВАЕМ кнопку открытия меню
             document.getElementById("openBtn").style.display = 'block'; 
         }
 
-  
+        // === 2. ЛОГИКА МОДАЛЬНЫХ ОКОН ===
         function openModal(modalId) {
-
+            // При открытии модалки, закрываем меню, если оно открыто
             closeNav(); 
             document.getElementById(modalId).style.display = "flex";
         }
