@@ -314,6 +314,25 @@
             box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
             background: rgba(255, 255, 255, 0.2);
         }
+
+        /* Стиль для кнопки авторизации (по аналогии с tg-action-btn) */
+        .auth-btn-primary {
+            background: linear-gradient(45deg, #3498db, #2980b9); /* Синий градиент */
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            width: 100%;
+            box-sizing: border-box;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .auth-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.6);
+        }
     </style>
 </head>
 <body>
@@ -331,16 +350,16 @@
              <i class="fas fa-home"></i> Главная
         </a>
         
-        <a href="shop.html" target="_blank" class="sidebar-item" onclick="closeNav()">
+        <a href="shop.html" class="sidebar-item" onclick="closeNav()">
             <i class="fas fa-shopping-cart"></i> Магазин
         </a>
         
-        <a href="" target="_blank" class="sidebar-item" onclick="closeNav()">
-            <i class="fas fa-code-branch"></i> Not work
+        <a href="https://t.me/RnPlugins" target="_blank" class="sidebar-item" onclick="closeNav()">
+            <i class="fas fa-code-branch"></i> RnPlugins
         </a>
         
         <div class="sidebar-item" onclick="closeNav()" style="margin-top: 30px; opacity: 0.8; font-size: 0.9rem;">
-            &copy; Ss, 21.11.25 >_
+            &copy; Ss 2025
         </div>
 
     </div>
@@ -356,6 +375,11 @@
         <p class="bio">It's a fine Day.</p>
 
         <div class="links">
+            
+            <div class="link-item" onclick="openModal('modal-auth')" style="background: rgba(52, 152, 219, 0.25); border: 1px solid rgba(52, 152, 219, 0.4);">
+                <i class="fas fa-user-circle"></i> Авторизация
+            </div>
+            
             <div class="link-item" onclick="openModal('modal-tg')">
                 <i class="fab fa-telegram"></i> Telegram Канал
             </div>
@@ -372,6 +396,24 @@
         <footer>
             &copy; 2025
         </footer>
+    </div>
+    
+    <div id="modal-auth" class="modal" onclick="closeModal(event, 'modal-auth')">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeBtn('modal-auth')">&times;</span>
+            
+            <h3 class="tg-title" style="margin-bottom: 25px;">Войти в аккаунт</h3>
+            
+            <p style="margin-bottom: 20px; color: #ccc;">Для покупок за Scoin требуется авторизация.</p>
+
+            <button class="auth-btn-primary" onclick="fakeLogin(); closeBtn('modal-auth');" style="margin-bottom: 15px;">
+                Войти (Имитация)
+            </button>
+            
+            <a href="#" class="alt-action-btn" style="color: #aaa;">
+                Регистрация
+            </a>
+        </div>
     </div>
     
     <div id="modal-tg" class="modal" onclick="closeModal(event, 'modal-tg')">
@@ -425,32 +467,25 @@
                     Написать в Tg <i class="fab fa-telegram-plane"></i>
                 </a>
 
-                <a href="https://" target="_blank" class="alt-action-btn">
-                    dev <i class="fab fa-telegram"></i>
+                <a href="https://t.me/RnPlugins" target="_blank" class="alt-action-btn">
+                    RnPlugins <i class="fab fa-telegram"></i>
                 </a>
             </div>
 
         </div>
     </div>
-<div id="modal-auth" class="modal" onclick="closeModal(event, 'modal-auth')">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeBtn('modal-auth')">&times;</span>
-        
-        <h3 class="tg-title" style="margin-bottom: 25px;">Войти в аккаунт</h3>
-        
-        <p style="margin-bottom: 20px; color: #ccc;">Для покупок за Scoin требуется авторизация.</p>
 
-        <button class="tg-action-btn" onclick="fakeLogin(); closeBtn('modal-auth');" style="margin-bottom: 15px;">
-            Войти
-        </button>
-        
-        <a href="#" class="alt-action-btn" style="color: #aaa;">
-            Регистрация
-        </a>
-    </div>
-</div>
     <script>
-        // === 1. ЛОГИКА БОКОВОГО МЕНЮ (с логикой скрытия кнопки) ===
+        // НОВОЕ: Переменная для имитации состояния авторизации
+        let isUserLoggedIn = false; 
+
+        // НОВАЯ ФУНКЦИЯ: Имитация авторизации
+        function fakeLogin() {
+            isUserLoggedIn = true;
+            alert("Вы успешно авторизованы! Теперь вы можете покупать за Scoin.");
+        }
+        
+        // === 1. ЛОГИКА БОКОВОГО МЕНЮ (ИСПРАВЛЕНО) ===
         function openNav() {
             document.getElementById("mySidebar").classList.add('open');
             // СКРЫВАЕМ кнопку открытия меню
@@ -479,19 +514,6 @@
                 document.getElementById(modalId).style.display = "none";
             }
         }
-        <script>
-        // НОВОЕ: Переменная для имитации состояния авторизации
-        let isUserLoggedIn = false; 
-
-        // НОВАЯ ФУНКЦИЯ: Имитация авторизации
-        function fakeLogin() {
-            isUserLoggedIn = true;
-            alert("Вы успешно авторизованы! Теперь вы можете покупать за Scoin.");
-            // Можете изменить текст кнопки, если хотите
-            // document.querySelector('[onclick="openModal(\'modal-auth\')"]').innerHTML = '<i class="fas fa-sign-out-alt"></i> Выйти (Demo)';
-        }
-        
-        // ... (остальные функции openNav, closeNav, openModal, closeBtn, closeModal остаются прежними)
     </script>
 
 </body>
