@@ -120,7 +120,8 @@
             z-index: 20;
             top: 0;
             left: 0;
-            background: rgba(0, 0, 0, 0.9);
+            /* ИЗМЕНЕНИЕ: Делаем цвет темнее, как у модалок */
+            background: rgba(30, 30, 30, 0.95); 
             backdrop-filter: blur(15px);
             overflow-x: hidden;
             transition: 0.5s;
@@ -147,6 +148,10 @@
         .sidebar-item:hover {
             color: #fff;
             background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar-item i {
+            margin-right: 10px;
         }
 
         /* --- СТИЛИ КНОПКИ ГАМБУРГЕРА --- */
@@ -195,8 +200,9 @@
         }
 
         .modal-content {
-            background: rgba(255, 255, 255, 0.1); 
-            border: 1px solid rgba(255, 255, 255, 0.2); 
+            /* ИЗМЕНЕНИЕ: Делаем цвет темнее, как у сайдбара */
+            background: rgba(30, 30, 30, 0.95); 
+            border: 1px solid rgba(255, 255, 255, 0.15); 
             padding: 30px;
             border-radius: 25px;
             text-align: center;
@@ -315,15 +321,19 @@
         
         <h2 style="padding: 0 25px; color: #fff; border-bottom: 1px solid rgba(255, 255, 255, 0.2); padding-bottom: 10px;">Меню</h2>
         
-      <a href="shop.html" target="_blank" class="sidebar-item" onclick="closeNav()">
-    <i class="fas fa-shopping-cart"></i> Магазин
-</a>
+        <a href="index.html" class="sidebar-item" onclick="closeNav()">
+             <i class="fas fa-home"></i> Главная
+        </a>
         
-        <a href="#" target="_blank" class="sidebar-item" onclick="closeNav()">
+        <a href="shop.html" target="_blank" class="sidebar-item" onclick="closeNav()">
             <i class="fas fa-shopping-cart"></i> Магазин
         </a>
+        
+        <div class="sidebar-item" onclick="openModal('modal-tg');">
+            <i class="fab fa-telegram"></i> Telegram Канал
+        </div>
 
-        <div class="sidebar-item" onclick="openModal('modal-empty'); closeNav();">
+        <div class="sidebar-item" onclick="openModal('modal-empty');">
             <i class="fas fa-folder-open"></i> Мои работы
         </div>
         
@@ -439,8 +449,10 @@
             document.getElementById("mySidebar").classList.remove('open');
         }
 
-        // === 2. ЛОГИКА МОДАЛЬНЫХ ОКОН (Оставлена) ===
+        // === 2. ЛОГИКА МОДАЛЬНЫХ ОКОН ===
         function openModal(modalId) {
+            // Закрываем меню, если оно открыто, для удобства
+            closeNav(); 
             document.getElementById(modalId).style.display = "flex";
         }
 
