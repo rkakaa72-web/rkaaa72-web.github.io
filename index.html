@@ -153,7 +153,7 @@
         .sidebar-item i {
             margin-right: 10px;
         }
-
+        
         /* --- СТИЛИ КНОПКИ ГАМБУРГЕРА --- */
         .open-btn {
             font-size: 24px;
@@ -312,7 +312,7 @@
 </head>
 <body>
     
-    <div class="open-btn" onclick="openNav()">
+    <div id="openBtn" class="open-btn" onclick="openNav()">
         <i class="fas fa-bars"></i> 
     </div>
     
@@ -329,11 +329,11 @@
             <i class="fas fa-shopping-cart"></i> Магазин
         </a>
         
-        <div class="sidebar-item" onclick="openModal('modal-tg');">
+        <div class="sidebar-item" onclick="openModal('modal-tg'); closeNav();">
             <i class="fab fa-telegram"></i> Telegram Канал
         </div>
 
-        <div class="sidebar-item" onclick="openModal('modal-empty');">
+        <div class="sidebar-item" onclick="openModal('modal-empty'); closeNav();">
             <i class="fas fa-folder-open"></i> Мои работы
         </div>
         
@@ -440,18 +440,22 @@
     </div>
 
     <script>
-        // === 1. ЛОГИКА БОКОВОГО МЕНЮ ===
+        // === 1. ЛОГИКА БОКОВОГО МЕНЮ (ОБНОВЛЕНА ДЛЯ СКРЫТИЯ КНОПКИ) ===
         function openNav() {
             document.getElementById("mySidebar").classList.add('open');
+            // СКРЫВАЕМ кнопку открытия меню
+            document.getElementById("openBtn").style.display = 'none';
         }
 
         function closeNav() {
             document.getElementById("mySidebar").classList.remove('open');
+            // ПОКАЗЫВАЕМ кнопку открытия меню
+            document.getElementById("openBtn").style.display = 'block'; 
         }
 
         // === 2. ЛОГИКА МОДАЛЬНЫХ ОКОН ===
         function openModal(modalId) {
-            // Закрываем меню, если оно открыто, для удобства
+            // При открытии модалки, закрываем меню, если оно открыто
             closeNav(); 
             document.getElementById(modalId).style.display = "flex";
         }
