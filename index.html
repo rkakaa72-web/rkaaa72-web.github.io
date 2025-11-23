@@ -353,4 +353,114 @@
 
         <div class="links">
             
-            <div class="link-item"
+            <div class="link-item" onclick="openModal('modal-tg')">
+                <i class="fab fa-telegram"></i> Telegram Канал
+            </div>
+
+            <div class="link-item" onclick="openModal('modal-empty')">
+                <i class="fas fa-folder-open"></i> Мои работы
+            </div>
+
+            <div class="link-item" onclick="openModal('modal-ls')">
+                <i class="fas fa-paper-plane"></i> Написать в ЛС
+            </div>
+        </div>
+
+        <footer>
+            &copy; 2025
+        </footer>
+    </div>
+    
+    <div id="modal-tg" class="modal" onclick="closeModal(event, 'modal-tg')">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeBtn('modal-tg')">&times;</span>
+            
+            <div class="tg-preview">
+                <img src="avatar_tg.jpg" class="tg-avatar-large" alt="avatar_tg.jpg"> 
+                
+                <h3 class="tg-title">Meme channel</h3>
+                <p class="tg-desc">Mheheheheh</p>
+                
+                <a href="https://t.me/bebebebeeheh" target="_blank" class="tg-action-btn">
+                    Подписаться <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="modal-empty" class="modal" onclick="closeModal(event, 'modal-empty')">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeBtn('modal-empty')">&times;</span>
+            
+            <div class="tg-preview">
+                <img src="mywork.jpg" class="tg-avatar-large" alt="My Work Avatar"> 
+                
+                <h3 class="tg-title">Im eat</h3>
+                
+                <p class="tg-desc">Хз, че тут постить, работ нет.</p>
+                
+                <a href="https://t.me/myworkyesmy" target="_blank" class="tg-action-btn">
+                    Перейти к работам <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="modal-ls" class="modal" onclick="closeModal(event, 'modal-ls')">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeBtn('modal-ls')">&times;</span>
+            
+            <div class="tg-preview">
+                <img src="ls_avatar.jpg" class="tg-avatar-large" alt="LS Avatar"> 
+
+                <h3 class="tg-title">Написать мне</h3>
+                <p class="tg-desc">Выберите удобный способ связи.</p>
+                
+                <a href="https://t.me/minusset" target="_blank" class="tg-action-btn">
+                    Написать в Tg <i class="fab fa-telegram-plane"></i>
+                </a>
+
+                <a href="https://t.me/RnPlugins" target="_blank" class="alt-action-btn">
+                    RnPlugins <i class="fab fa-telegram"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // === 1. ЛОГИКА БОКОВОГО МЕНЮ ===
+        function openNav() {
+            document.getElementById("mySidebar").classList.add('open');
+            // СКРЫВАЕМ кнопку открытия меню
+            document.getElementById("openBtn").style.display = 'none';
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").classList.remove('open');
+            // ПОКАЗЫВАЕМ кнопку открытия меню
+            document.getElementById("openBtn").style.display = 'block'; 
+        }
+
+        // === 2. ЛОГИКА МОДАЛЬНЫХ ОКОН ===
+        function openModal(modalId) {
+            // При открытии модалки, закрываем меню, если оно открыто
+            closeNav(); 
+            document.getElementById(modalId).style.display = "flex";
+        }
+
+        function closeBtn(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        function closeModal(event, modalId) {
+            if (event.target.id === modalId) {
+                document.getElementById(modalId).style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
