@@ -34,7 +34,7 @@
 
         .container {
             width: 100%;
-            max-width: 500px; /* Немного уменьшим ширину для карточек */
+            max-width: 500px; 
             padding: 40px 20px;
             text-align: center;
             background: rgba(0, 0, 0, 0.5); 
@@ -128,7 +128,7 @@
             background: rgba(255, 255, 255, 0.25);
         }
         
-        /* --- СТИЛИ МОДАЛЬНЫХ ОКОН (СКОПИРОВАНО С INDEX.HTML) --- */
+        /* --- СТИЛИ МОДАЛЬНЫХ ОКОН --- */
         .modal {
             display: none;
             position: fixed;
@@ -226,12 +226,12 @@
         <source src="shop_video.mp4" type="video/mp4"> 
     </video>
 
-  <div class="container">
+    <div class="container">
         <h1>🛒 Магазин</h1>
         <p style="color: #ccc; margin-bottom: 30px;">
             Используйте нашу валюту <strong style="color: #f1c40f;">Scoin</strong> для удобных покупок!
         </p>
-        
+
         <button class="buy-btn" onclick="openModal('modal-buy-scoin')" style="background: linear-gradient(45deg, #e67e22, #d35400); margin-bottom: 30px; padding: 10px 20px;">
             <i class="fas fa-coins"></i> Купить Scoin
         </button>
@@ -250,7 +250,7 @@
             </button>
         </div>
         
-        </div>
+    </div>
     
     <div id="modal-buy-vip" class="modal" onclick="closeModal(event, 'modal-buy-vip')">
         <div class="modal-content">
@@ -258,7 +258,8 @@
             
             <h3 class="modal-title" style="margin-bottom: 25px;">Выберите способ оплаты</h3>
             
-          <a href="#" class="payment-option-btn scoin-btn" onclick="checkScoinPurchase();"></i> Оплата 500 Scoin
+            <a href="#" class="payment-option-btn scoin-btn" onclick="checkScoinPurchase();">
+                <i class="fas fa-coins"></i> Оплата 500 Scoin
             </a>
 
             <a href="https://yoomoney.ru/" target="_blank" class="payment-option-btn yumoney-btn">
@@ -269,25 +270,27 @@
         </div>
     </div>
     
+    <div id="modal-buy-scoin" class="modal" onclick="closeModal(event, 'modal-buy-scoin')">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeBtn('modal-buy-scoin')">&times;</span>
+            
+            <h3 class="modal-title" style="margin-bottom: 20px;">Покупка Scoin</h3>
+            
+            <p style="margin-bottom: 25px; color: #ccc;">Выберите сумму для пополнения:</p>
+
+            <a href="https://yoomoney.ru/" target="_blank" class="payment-option-btn yumoney-btn" style="background: #e67e22;">
+                <i class="fas fa-star"></i> Купить 1000 Scoin за 200 ₽
+            </a>
+            
+            <a href="https://yoomoney.ru/" target="_blank" class="payment-option-btn yumoney-btn" style="background: #e74c3c;">
+                <i class="fas fa-star"></i> Купить 500 Scoin за 110 ₽
+            </a>
+            
+        </div>
+    </div>
 
     <script>
-        // === ЛОГИКА МОДАЛЬНЫХ ОКОН (Повторение из index.html) ===
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = "flex";
-        }
-
-        function closeBtn(modalId) {
-            document.getElementById(modalId).style.display = "none";
-        }
-
-        function closeModal(event, modalId) {
-            // Закрытие по клику вне контента модального окна
-            if (event.target.id === modalId) {
-                document.getElementById(modalId).style.display = "none";
-            }
-        }
-       // !!! ВАЖНО: Эта переменная должна быть синхронизирована с index.html !!!
-        // В реальном проекте она бы хранилась на сервере, здесь - это имитация.
+        // !!! ВАЖНО: Имитация состояния авторизации. Должна быть true после входа на index.html
         let isUserLoggedIn = false; 
         
         // === ЛОГИКА МОДАЛЬНЫХ ОКОН ===
@@ -305,18 +308,19 @@
             }
         }
         
-        // НОВАЯ ФУНКЦИЯ: Проверка авторизации перед покупкой за Scoin
+        // ФУНКЦИЯ: Проверка авторизации перед покупкой за Scoin
         function checkScoinPurchase() {
             if (!isUserLoggedIn) {
-                alert("Ошибка! Вы не авторизованы. Войдите в аккаунт, чтобы использовать Scoin.");
+                // Если не авторизован, показываем сообщение и останавливаем покупку
+                alert("Ошибка! Вы не авторизованы. Войдите в аккаунт (на главной странице), чтобы использовать Scoin.");
                 return false;
             }
             
+            // Если авторизован, имитируем покупку
             alert("Покупка за Scoin успешно совершена (имитация). Спасибо за поддержку!");
             closeBtn('modal-buy-vip');
             return true;
         }
     </script>
-    
 </body>
 </html>
